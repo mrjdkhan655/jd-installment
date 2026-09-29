@@ -1,0 +1,13 @@
+node_modules/
+.next/
+.env
+.env.local
+.env.*
+!.env.example
+
+.DS_Store
+.vercel/
+.wrangler/
+*.tsbuildinfo
+cloudflare-deploy/
+installment-system/

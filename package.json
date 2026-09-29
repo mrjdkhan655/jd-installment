@@ -1,0 +1,46 @@
+{
+  "name": "installment-management-system",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:cf": "next-on-pages && rm -rf cloudflare-deploy && cp -r .vercel/output/static cloudflare-deploy",
+    "deploy:cf": "npm run build:cf && wrangler pages deploy cloudflare-deploy --project-name=jd",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "node -e \"const fs=require('fs');const p='./node_modules/@react-pdf/hyphenate/package.json';if(fs.existsSync(p)){const j=JSON.parse(fs.readFileSync(p));if(!j.exports['./*']?.require){j.exports['.']={...j.exports['.'],require:'./lib/index.js',default:'./lib/index.js'};j.exports['./*']={...j.exports['./*'],require:'./lib/*.js',default:'./lib/*.js'};fs.writeFileSync(p,JSON.stringify(j,null,2));}}\"",
+    "db:types": "supabase gen types typescript --linked > src/types/database.ts"
+  },
+  "dependencies": {
+    "@react-pdf/renderer": "^4.9.0",
+    "@supabase/ssr": "^0.5.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "@types/three": "^0.186.0",
+    "buffer": "^6.0.3",
+    "chart.js": "^4.5.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^3.6.0",
+    "lucide-react": "^0.383.0",
+    "next": "^15.0.0",
+    "react": "^18.3.0",
+    "react-chartjs-2": "^5.3.1",
+    "react-dom": "^18.3.0",
+    "three": "^0.186.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.16",
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^15.0.0",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "tsx": "^4.23.15",
+    "typescript": "^5.5.0",
+    "wrangler": "^4.86.0"
+  }
+}
